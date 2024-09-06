@@ -12,13 +12,13 @@ namespace ParaClub
         static void Main(string[] args)
         {
             //définis la taille de l'écran
-            Console.BufferHeight = Config.SCREEN_HEIGHT;
-            Console.BufferWidth = Config.SCREEN_WIDTH;
+            Console.WindowHeight = Config.SCREEN_HEIGHT;
+            Console.WindowWidth = Config.SCREEN_WIDTH;
 
             Plane plane = new Plane();
             Para para = new Para();
 
-            para._name = "Bob";
+            para.Name = "Bob";
             plane.draw();
             plane.parachutistes.Add(para);
 
@@ -28,19 +28,19 @@ namespace ParaClub
                 // Modifier le modèle (ce qui *est*)
                 plane.update();
 
-                /*para.x = plane.x + 12;
-                Console.SetCursorPosition(para.x, para.y);
-                Console.Write(para.parachutiste);*/
+                para.update();
 
                 // Modifier ce que l'on *voit*
                 Console.Clear();
                 plane.draw();
+                para.draw();
 
                 // Temporiser
                 Thread.Sleep(100);
             }
-
-            Console.ReadLine();
+            /*para.x = plane.x + 12;
+            Console.SetCursorPosition(para.x, para.y);
+            Console.Write(para.parachutiste);*/
         }
     }
 }

@@ -13,6 +13,8 @@ namespace ParaClub
         public int x = 0;
         public int y = 0;
 
+        public List<Para> parachutistes = new List<Para>();
+
         private string[] view =
         {
             @" _                         ",
