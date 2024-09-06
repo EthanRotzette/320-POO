@@ -16,6 +16,7 @@ namespace ParaClub
             Console.BufferWidth = Config.SCREEN_WIDTH;
 
             Plane plane = new Plane();
+            Para para = new Para();
 
             plane.draw();
 
@@ -23,7 +24,12 @@ namespace ParaClub
             while (true)
             {
                 // Modifier le modèle (ce qui *est*)
-                plane.update();        
+                plane.update();
+                
+                para.x = plane.x + 12;
+                Console.SetCursorPosition(para.x, para.y);
+                Console.Write(para.parachutiste);
+                
 
                 // Modifier ce que l'on *voit*
                 Console.Clear();
@@ -32,6 +38,7 @@ namespace ParaClub
                 // Temporiser
                 Thread.Sleep(100);
             }
+
             Console.ReadLine();
         }
     }
