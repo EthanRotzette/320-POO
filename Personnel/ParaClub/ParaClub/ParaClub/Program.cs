@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ParaClub
@@ -16,7 +17,21 @@ namespace ParaClub
 
             Plane plane = new Plane();
 
-            plane.View();
+            plane.draw();
+
+            //bouger l'avion
+            while (true)
+            {
+                // Modifier le modèle (ce qui *est*)
+                plane.update();        
+
+                // Modifier ce que l'on *voit*
+                Console.Clear();
+                plane.draw();
+
+                // Temporiser
+                Thread.Sleep(100);
+            }
             Console.ReadLine();
         }
     }
