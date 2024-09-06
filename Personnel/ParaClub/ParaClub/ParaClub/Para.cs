@@ -8,10 +8,15 @@ namespace ParaClub
 {
     internal class Para
     {
-        public string parachutiste = "1";
-        public string name = "Bob";
+        public string parachutiste = "";
+        private string _name = "Bob";
         public int y = 4;
         public int x = 0;
+
+        public void update()
+        {
+
+        }
 
 
     }

@@ -18,18 +18,19 @@ namespace ParaClub
             Plane plane = new Plane();
             Para para = new Para();
 
+            para._name = "Bob";
             plane.draw();
+            plane.parachutistes.Add(para);
 
             //bouger l'avion
             while (true)
             {
                 // Modifier le modèle (ce qui *est*)
                 plane.update();
-                
-                para.x = plane.x + 12;
+
+                /*para.x = plane.x + 12;
                 Console.SetCursorPosition(para.x, para.y);
-                Console.Write(para.parachutiste);
-                
+                Console.Write(para.parachutiste);*/
 
                 // Modifier ce que l'on *voit*
                 Console.Clear();
