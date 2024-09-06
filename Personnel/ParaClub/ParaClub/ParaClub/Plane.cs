@@ -13,7 +13,7 @@ namespace ParaClub
         public int x = 0;
         public int y = 0;
 
-        public List<Para> parachutistes = new List<Para>();
+        public List<Para> parachutists = new List<Para>();
 
         private string[] view =
         {
@@ -25,6 +25,18 @@ namespace ParaClub
             @"        \_____|_____/   |  "
         };
 
+        // Model attributes
+        public int altitude;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public Plane()
+        {
+            x = 0;
+            altitude = Config.SCREEN_HEIGHT;
+            parachutists = new List<Para>();
+        }
         public void draw()
         {
             for (int i = 0; i < view.Length; i++)
@@ -42,6 +54,25 @@ namespace ParaClub
             {
                 x = 0; //remet x a 0 quand 
             }
+        }
+        /// <summary>
+        /// Take a parachustist on board
+        /// </summary>
+        /// <param name="para"></param>
+        public void board(Para para)
+        {
+            this.parachutists.Add(para);
+        }
+
+        internal Para dropParachutist()
+        {
+            /*if (parachutists == null)
+            { }*/
+            Para parachutist = parachutists.First();
+            parachutists.Remove(parachutist);
+            parachutist.x = x;
+            parachutist.y = this.y;
+            return parachutist;
         }
     }
 }

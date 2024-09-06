@@ -31,7 +31,7 @@ namespace ParaClub
         private string _name;
         public int y = 4;
         public int x = 0;
-        private const int PARA_HEIGHT = 6;
+        private const int PARA_HEIGHT = 7;
         public bool parachuteIsOpen;
 
         public string Name { get => _name; set => _name = value; }
@@ -75,7 +75,7 @@ namespace ParaClub
                 {
                     Console.SetCursorPosition(x, y + i);
                     Console.Write(withoutParachute[i]);
-                }
+                };
             }
         }
 

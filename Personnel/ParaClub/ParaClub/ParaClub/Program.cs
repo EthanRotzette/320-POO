@@ -14,26 +14,53 @@ namespace ParaClub
             //définis la taille de l'écran
             Console.WindowHeight = Config.SCREEN_HEIGHT;
             Console.WindowWidth = Config.SCREEN_WIDTH;
+            ConsoleKeyInfo keyPressed;
 
             Plane plane = new Plane();
-            Para para = new Para();
 
-            para.Name = "Bob";
-            plane.draw();
-            plane.parachutistes.Add(para);
+            List<Para> parachutistsInTheAir = new List<Para>();
+
+            for (int i = 0; i < 8; i++)
+            {
+                plane.parachutists.Add(new Para());
+            }
 
             //bouger l'avion
             while (true)
             {
+                Console.Clear();
                 // Modifier le modèle (ce qui *est*)
                 plane.update();
 
-                para.update();
+                if (Console.KeyAvailable) // L'utilisateur a pressé une touche
+                {
+                    keyPressed = Console.ReadKey(false);
+                    switch (keyPressed.Key)
+                    {
+                        case ConsoleKey.Escape:
+                            Environment.Exit(0);
+                            break;
 
-                // Modifier ce que l'on *voit*
-                Console.Clear();
+                        case ConsoleKey.Spacebar:
+                            Para jumper = plane.dropParachutist();
+                            parachutistsInTheAir.Add(jumper);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                plane.update();
+                foreach (Para para in parachutistsInTheAir)
+                {
+                    para.update();
+                }
+                //Ce qu'on voit
                 plane.draw();
-                para.draw();
+                foreach (Para para in parachutistsInTheAir)
+                {
+                    para.draw();
+                }
 
                 // Temporiser
                 Thread.Sleep(100);
