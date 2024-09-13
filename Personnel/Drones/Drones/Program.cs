@@ -22,15 +22,19 @@ namespace Drones
 
             // Création des bâtiments
             List<Building> buildings = new List<Building>();
-            Building building = new Building();
-            building.X = 500;
-            building.Y = 500; 
-            buildings.Add(building);
+            
+            Factory factory = new Factory(300);
+            factory.X = 500;
+            factory.Y = 500; 
+            buildings.Add(factory);
 
-            building = new Building();
-            building.X = 700;
-            building.Y = 400;
-            buildings.Add(building);
+            Store store = new Store();
+            store.X = 700;
+            store.Y = 400;
+            buildings.Add(store);
+
+            store.Show();
+            factory.Show();
 
             // Démarrage
             Application.Run(new AirSpace(fleet, buildings));

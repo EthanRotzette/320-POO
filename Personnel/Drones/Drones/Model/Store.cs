@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Drones
 {
-    public partial class Building
+    public partial class Store : Building
     {
-        private Pen buildingBrush = new Pen(new SolidBrush(Color.Red), 20);
     }
 }

@@ -41,7 +41,16 @@ namespace Drones
             //Affiche les immeubles
             foreach (Building building in buildings)
             {
-                building.Render(airspace);
+                if (building.GetType() == typeof(Factory))
+                {
+                    Factory factory = (Factory)building;  //type casting
+                    factory.Render(airspace);
+                }
+                else
+                {
+                    Store store = (Store)building;
+                    store.Render(airspace);
+                }
             }
 
             airspace.Render();
