@@ -13,7 +13,7 @@ namespace Drones
             ApplicationConfiguration.Initialize();
 
             // Création de la flotte de drones
-            List<Drone> fleet= new List<Drone>();
+            List<Drone> fleet = new List<Drone>();
             Drone drone = new Drone();
             drone.X = 100;
             drone.Y = 100;
@@ -22,16 +22,33 @@ namespace Drones
 
             // Création des bâtiments
             List<Building> buildings = new List<Building>();
-            
             Factory factory = new Factory(300);
-            factory.X = 500;
-            factory.Y = 500; 
+            factory.X = 700;
+            factory.Y = 400;
             buildings.Add(factory);
 
             Store store = new Store();
             store.X = 700;
             store.Y = 400;
             buildings.Add(store);
+
+            for (int i = 0; i < 4; i++)
+            {
+                factory.X = MiscHelpers.CoordAlea();
+                factory.Y = MiscHelpers.CoordAlea();
+
+                foreach (Building building in buildings)
+                {
+                    if (factory.X == factory.Y)
+                    {
+                        factory.X = MiscHelpers.CoordAlea();
+                        factory.Y = MiscHelpers.CoordAlea();
+                    }
+
+                }
+
+                buildings.Add(factory);
+            }
 
             store.Show();
             factory.Show();

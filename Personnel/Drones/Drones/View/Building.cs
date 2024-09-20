@@ -8,6 +8,6 @@ namespace Drones
 {
     public partial class Building
     {
-        private Pen buildingBrush = new Pen(new SolidBrush(Color.Red), 20);
+        private Pen buildingBrush = new Pen(new SolidBrush(System.Drawing.Color.Red), 20);
     }
 }

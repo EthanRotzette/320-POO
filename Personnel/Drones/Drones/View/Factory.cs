@@ -11,11 +11,11 @@ namespace Drones
         private Pen factoryBrush = new Pen(new SolidBrush(Color.Red), 20);
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawRectangle(factoryBrush, new Rectangle(X - 4, Y - 2, 16, 16));
+            drawingSpace.Graphics.DrawRectangle(factoryBrush, new Rectangle(X - 4, Y - 2, Dimension_largeur, Dimension_profondeur));
         }
         public void Show()
         {
-            Console.WriteLine("Factory");
+            Console.WriteLine(PowerConsumption + " kwH");
         }
     }
 }

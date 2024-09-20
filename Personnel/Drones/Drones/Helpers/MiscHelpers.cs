@@ -14,5 +14,10 @@ namespace Drones
         {
             return alea.Next(-2, 3);
         }
+
+        public static int CoordAlea() 
+        {
+            return alea.Next(0, 600);
+        }
     }
 }
