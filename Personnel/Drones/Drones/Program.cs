@@ -15,31 +15,23 @@ namespace Drones
             // Création de la flotte de drones
             List<Drone> fleet = new List<Drone>();
             Drone drone = new Drone();
-            drone.X = 100;
-            drone.Y = 100;
+            drone.X = 600;
+            drone.Y = 6;
             drone.Name = "Joe";
             fleet.Add(drone);
 
             // Création des bâtiments
             List<Building> buildings = new List<Building>();
-            Factory factory = new Factory(300);
-            factory.X = 700;
-            factory.Y = 400;
-            buildings.Add(factory);
 
-            Store store = new Store();
-            store.X = 700;
-            store.Y = 400;
-            buildings.Add(store);
-
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
+                Factory factory = new Factory(300);
                 factory.X = MiscHelpers.CoordAlea();
                 factory.Y = MiscHelpers.CoordAlea();
 
                 foreach (Building building in buildings)
                 {
-                    if (factory.X == factory.Y)
+                    if (building.X + 20 == factory.X && building.Y + 20 == factory.Y)
                     {
                         factory.X = MiscHelpers.CoordAlea();
                         factory.Y = MiscHelpers.CoordAlea();
@@ -47,11 +39,29 @@ namespace Drones
 
                 }
 
+                factory.Show();
                 buildings.Add(factory);
             }
 
-            store.Show();
-            factory.Show();
+            for (int i = 0; i < 5; i++)
+            {
+                Store store = new Store();
+                store.X = MiscHelpers.CoordAlea();
+                store.Y = MiscHelpers.CoordAlea();
+
+                foreach (Building building in buildings)
+                {
+                    if (building.X + 20 == store.X && building.Y + 20 == store.Y)
+                    {
+                        store.X = MiscHelpers.CoordAlea();
+                        store.Y = MiscHelpers.CoordAlea();
+                    }
+
+                }
+
+                store.Show();
+                buildings.Add(store);
+            }
 
             // Démarrage
             Application.Run(new AirSpace(fleet, buildings));

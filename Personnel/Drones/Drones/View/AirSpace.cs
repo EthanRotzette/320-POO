@@ -25,6 +25,11 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this.fleet = fleet;
             this.buildings = buildings;
+
+            if (fleet.Count >= 10)
+            {
+                throw new Exception("Il y a plus de 10 drones");
+            }
         }
 
         // Affichage de la situation actuelle
@@ -63,7 +68,7 @@ namespace Drones
             foreach (Drone drone in fleet)
             {
                 drone.Update(interval);
-            }
+            }            
         }
 
         // Méthode appelée à chaque frame
