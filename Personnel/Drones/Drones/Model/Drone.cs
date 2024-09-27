@@ -1,7 +1,8 @@
-﻿namespace Drones
+﻿
+namespace Drones
 {
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
-    public partial class Drone
+    public partial class Drone : IExpellable
     {
         private int _charge = 1000;                     // La charge actuelle de la batterie
         private string _name;                           // Un nom
@@ -17,13 +18,28 @@
         public int ChargeActu { get => _chargeActu; set => _chargeActu = value; }
         public bool LowBattery { get => _lowBattery; set => _lowBattery = value; }
 
+        public bool Evacuate(Rectangle zone)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void FreeFlight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public EvacuationState GetEvacuationState()
+        {
+            throw new NotImplementedException();
+        }
+
 
         // Cette méthode calcule le nouvel état dans lequel le drone se trouve après
         // que 'interval' millisecondes se sont écoulées
         public void Update(int interval)
         {
-            _x += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
-            _y = MiscHelpers.valueAlea();                  // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
+            X += 2;                                    // Il s'est déplacé de 2 pixels vers la droite
+            Y = MiscHelpers.valueAlea();                  // Il s'est déplacé d'une valeur aléatoire vers le haut ou le bas
             _charge--;                                  // Il a dépensé de l'énergie
             ChargeActu = _charge;
             

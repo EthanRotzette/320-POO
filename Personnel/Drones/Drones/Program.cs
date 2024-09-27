@@ -36,7 +36,7 @@ namespace Drones
 
                 foreach (Building building in buildings)
                 {
-                    if (building.X + 20 == factory.X && building.Y + 20 == factory.Y)
+                    if (building.X + 50 == factory.X && building.Y + 50 == factory.Y)
                     {
                         factory.X = MiscHelpers.CoordAlea();
                         factory.Y = MiscHelpers.CoordAlea();
@@ -48,7 +48,7 @@ namespace Drones
                 buildings.Add(factory);
             }
 
-            for (int i = 0; i < 5; i++)
+            for (int j = 0; j < 5; j++)
             {
                 Store store = new Store();
                 store.X = MiscHelpers.CoordAlea();
@@ -56,7 +56,7 @@ namespace Drones
 
                 foreach (Building building in buildings)
                 {
-                    if (building.X + 20 == store.X && building.Y + 20 == store.Y)
+                    if (building.X + 50 == store.X && building.Y + 50 == store.Y)
                     {
                         store.X = MiscHelpers.CoordAlea();
                         store.Y = MiscHelpers.CoordAlea();
