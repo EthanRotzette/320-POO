@@ -17,9 +17,7 @@ namespace Drones
             Drone drone;
             for (int i = 0; i < 9; i++)
             {
-                drone = new Drone();
-                drone.X = 100;
-                drone.Y = 100;
+                drone = new Drone(100, 100);
                 drone.Name = "Joe";
                 fleet.Add(drone);
             }

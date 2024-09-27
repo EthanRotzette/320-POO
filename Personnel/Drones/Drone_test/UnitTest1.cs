@@ -8,15 +8,15 @@ namespace Drone_test
         [TestMethod]
         public void Test_charge_batterie_is_1000()
         {
-            Drone drone = new Drone();
+            Drone drone = new Drone(500, 500);
 
-            Assert.AreEqual(1000, drone.Charge, "Un nouveau drone n'a pas une charge de 1000 au départ");
+            Assert.AreEqual(1000, drone.Charge, "Un nouveau Drone n'a pas une charge de 1000 au départ");
         }
 
         [TestMethod]
         public void Test_charge_batterie_down()
         {
-            Drone drone = new Drone();
+            Drone drone = new Drone(500, 500);
             int result;
 
             result = drone.ChargeActu;
@@ -27,7 +27,7 @@ namespace Drone_test
         [TestMethod]
         public void Test_charge_is_lower_than_20_pourcent_lowBatterie_is_true()
         {
-            Drone drone = new Drone();
+            Drone drone = new Drone(500, 500);
 
             Assert.IsFalse(drone.LowBattery, "LowBattery ne vaut pas true lorsque la charge est a 20%");
             drone.Charge = 10;
@@ -39,5 +39,32 @@ namespace Drone_test
         {
 
         }
+
+        [TestMethod]
+        public void Test_that_drone_is_taking_orders()
+        {
+            // Arrange
+            Drone drone = new Drone(500, 500);
+
+            // Act
+            EvacuationState state = drone.GetEvacuationState();
+
+            // Assert
+            Assert.AreEqual(EvacuationState.Free, state);
+
+            // Arrange a no-fly zone around the drone
+            bool response = drone.Evacuate(new System.Drawing.Rectangle(400, 400, 200, 200));
+
+            // Assert
+            Assert.IsFalse(response); // because the zone is around the drone
+            Assert.AreEqual(EvacuationState.Evacuating, drone.GetEvacuationState());
+
+            // Arrange: remove no-fly zone
+            drone.FreeFlight();
+
+            // Assert
+            Assert.AreEqual(EvacuationState.Free, drone.GetEvacuationState());
+        }
+
     }
 }

@@ -1,4 +1,6 @@
 ﻿
+using System.Drawing.Text;
+
 namespace Drones
 {
     // Cette partie de la classe Drone définit ce qu'est un drone par un modèle numérique
@@ -10,6 +12,8 @@ namespace Drones
         private int _y;                                 // Position en Y depuis le haut de l'espace aérien
         private int _chargeActu;
         private bool _lowBattery;
+        private EvacuationState _evacuationState;
+        private Rectangle _NoFlyZone;
 
         public string Name { get => _name; set => _name = value; }
         public int Charge { get => _charge; set => _charge = value; }
@@ -18,19 +22,38 @@ namespace Drones
         public int ChargeActu { get => _chargeActu; set => _chargeActu = value; }
         public bool LowBattery { get => _lowBattery; set => _lowBattery = value; }
 
+        public Drone(int y, int x)
+        {
+            X = x;
+            Y = y;
+            _evacuationState = EvacuationState.Free;
+        }
         public bool Evacuate(Rectangle zone)
         {
-            throw new NotImplementedException();
+            _NoFlyZone = zone;
+            Rectangle drone = new Rectangle(X - 4, Y - 2, 8, 8);
+
+            if (!_NoFlyZone.IntersectsWith(drone))
+            {
+                _evacuationState = EvacuationState.Evacuated;
+                return true;
+            }
+            else
+            {
+                _evacuationState = EvacuationState.Evacuating;
+                return false;
+            }
         }
 
         public void FreeFlight()
         {
-            throw new NotImplementedException();
+            _evacuationState = EvacuationState.Free;
+            _NoFlyZone = Rectangle.Empty;
         }
 
         public EvacuationState GetEvacuationState()
         {
-            throw new NotImplementedException();
+            return _evacuationState;
         }
 
 

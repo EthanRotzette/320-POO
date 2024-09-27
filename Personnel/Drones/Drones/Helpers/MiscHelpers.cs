@@ -19,5 +19,9 @@ namespace Drones
         {
             return alea.Next(0, 600);
         }
+        public static int CoordAleaY()
+        {
+            return alea.Next(0, Config.HEIGHT - 75);
+        }
     }
 }
