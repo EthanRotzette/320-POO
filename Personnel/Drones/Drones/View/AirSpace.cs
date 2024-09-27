@@ -17,6 +17,11 @@ namespace Drones
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet, List<Building> buildings)
         {
+            if (fleet.Count >= 10)
+            {
+                throw new Exception("Il y a plus de 10 drones");
+            }
+
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
             currentContext = BufferedGraphicsManager.Current;
@@ -25,11 +30,6 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this.fleet = fleet;
             this.buildings = buildings;
-
-            if (fleet.Count >= 10)
-            {
-                throw new Exception("Il y a plus de 10 drones");
-            }
         }
 
         // Affichage de la situation actuelle

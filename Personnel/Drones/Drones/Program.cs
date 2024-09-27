@@ -14,11 +14,16 @@ namespace Drones
 
             // Création de la flotte de drones
             List<Drone> fleet = new List<Drone>();
-            Drone drone = new Drone();
-            drone.X = 600;
-            drone.Y = 6;
-            drone.Name = "Joe";
-            fleet.Add(drone);
+            Drone drone;
+            for (int i = 0; i < 9; i++)
+            {
+                drone = new Drone();
+                drone.X = 100;
+                drone.Y = 100;
+                drone.Name = "Joe";
+                fleet.Add(drone);
+            }
+
 
             // Création des bâtiments
             List<Building> buildings = new List<Building>();
@@ -63,8 +68,15 @@ namespace Drones
                 buildings.Add(store);
             }
 
-            // Démarrage
-            Application.Run(new AirSpace(fleet, buildings));
+            try
+            {
+                // Démarrage
+                Application.Run(new AirSpace(fleet, buildings));
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Erreur :" + e);
+            }
         }
     }
 }
