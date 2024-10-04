@@ -86,5 +86,10 @@ namespace Drones
             this.Update(ticker.Interval);
             this.Render();
         }
+
+        public class Dispatch
+        {
+
+        }
     }
 }
