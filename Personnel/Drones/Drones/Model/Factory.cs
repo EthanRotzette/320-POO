@@ -24,7 +24,7 @@ namespace Drones
         {
             if(_productionTime == 0)
             {
-                Console.WriteLine("Un carton est créée");
+                Console.WriteLine("Un carton est créé");
                 _productionTime += MiscHelpers.AleaTime();
             }
             else

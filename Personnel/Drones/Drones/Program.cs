@@ -15,7 +15,7 @@ namespace Drones
             // Création de la flotte de drones
             List<Drone> fleet = new List<Drone>();
             Drone drone;
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 1; i++)
             {
                 drone = new Drone(100, 100);
                 drone.Name = "Joe";

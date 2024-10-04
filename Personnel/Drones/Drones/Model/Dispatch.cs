@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Drones
 {
-    public class Box
+    public class Dispatch
     {
+        List<Box> boxes = new List<Box>();
     }
 }

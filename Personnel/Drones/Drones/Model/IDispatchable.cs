@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Drones
 {
-    public class Box
+    public interface IDispatchable
     {
+        bool PassBox(Box box);
+        bool RemoveBox(Box box);
     }
 }
