@@ -23,5 +23,9 @@ namespace Drones
         {
             return alea.Next(0, Config.HEIGHT - 75);
         }
+        public static int AleaTime()
+        {
+            return alea.Next(50, 71);
+        }
     }
 }
