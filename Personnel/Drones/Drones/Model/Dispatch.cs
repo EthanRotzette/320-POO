@@ -13,6 +13,7 @@ namespace Drones
         public void PassBox(Box box)
         {
             boxes.Add(box);
+            Console.WriteLine("Un carton est disponible");
         }
 
         public void RemoveBox(Box box)
