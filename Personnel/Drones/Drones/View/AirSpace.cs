@@ -31,6 +31,7 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this.fleet = fleet;
             this.buildings = buildings;
+            dispatch = new Dispatch();
         }
 
         // Affichage de la situation actuelle
@@ -76,7 +77,7 @@ namespace Drones
                 if (building.GetType() == typeof(Factory))
                 {
                     Factory factory = (Factory)building;  //type casting
-                    factory.Update(interval);
+                    factory.Update(dispatch);
                 }
             }
         }

@@ -8,7 +8,7 @@ namespace Drones
 {
     public class Dispatch : IDispatchable
     {
-        List<Box> boxes = new List<Box>();
+        public List<Box> boxes = new List<Box>();
 
         public void PassBox(Box box)
         {

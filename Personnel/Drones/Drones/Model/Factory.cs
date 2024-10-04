@@ -20,12 +20,14 @@ namespace Drones
             PowerConsumption = powerConsumption;
         }
 
-        public void Update(int interval)
+        public void Update(Dispatch dispatch)
         {
             if(_productionTime == 0)
             {
                 Console.WriteLine("Un carton est créé");
                 _productionTime += MiscHelpers.AleaTime();
+                Box box = new Box();
+                dispatch.PassBox(box);
             }
             else
             {
