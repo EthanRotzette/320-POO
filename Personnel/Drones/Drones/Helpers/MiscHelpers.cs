@@ -17,7 +17,7 @@ namespace Drones
 
         public static int CoordAlea() 
         {
-            return alea.Next(0, 600);
+            return alea.Next(100, 800);
         }
         public static int CoordAleaY()
         {
