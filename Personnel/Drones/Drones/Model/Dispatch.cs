@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace Drones
 {
-    public class Dispatch
+    public class Dispatch : IDisposable
     {
         List<Box> boxes = new List<Box>();
+
+        public void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
