@@ -1,0 +1,19 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="qoMvskikakU2_Yz1Si9-">
+    <mxGraphModel dx="819" dy="446" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GZcVxtqd3zN09xp4GSen-4" value="Drone" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=29;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="240" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="GZcVxtqd3zN09xp4GSen-5" value="- _charge : int&lt;div&gt;- _name : string&lt;/div&gt;&lt;div&gt;- _x : int&lt;/div&gt;&lt;div&gt;- _y : int&lt;/div&gt;&lt;div&gt;- _chargeActu : int&lt;/div&gt;&lt;div&gt;- _lowBattery : bool&lt;/div&gt;&lt;div&gt;- _evacuationState : EvacuationState&lt;/div&gt;&lt;div&gt;- _NoFlyZone : Rectangle&lt;/div&gt;&lt;div&gt;+ Name : {get}&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;" vertex="1" parent="GZcVxtqd3zN09xp4GSen-4">
+          <mxGeometry y="29" width="240" height="141" as="geometry" />
+        </mxCell>
+        <mxCell id="GZcVxtqd3zN09xp4GSen-6" value="stereotype property 1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;" vertex="1" parent="GZcVxtqd3zN09xp4GSen-4">
+          <mxGeometry y="170" width="240" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
