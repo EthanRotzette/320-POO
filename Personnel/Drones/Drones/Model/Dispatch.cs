@@ -10,14 +10,14 @@ namespace Drones
     {
         List<Box> boxes = new List<Box>();
 
-        public bool PassBox(Box box)
+        public void PassBox(Box box)
         {
-            throw new NotImplementedException();
+            boxes.Add(box);
         }
 
-        public bool RemoveBox(Box box)
+        public void RemoveBox(Box box)
         {
-            throw new NotImplementedException();
+            boxes.Remove(box);
         }
     }
 }

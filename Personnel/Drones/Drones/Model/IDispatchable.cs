@@ -8,7 +8,7 @@ namespace Drones
 {
     public interface IDispatchable
     {
-        bool PassBox(Box box);
-        bool RemoveBox(Box box);
+        void PassBox(Box box);
+        void RemoveBox(Box box);
     }
 }
