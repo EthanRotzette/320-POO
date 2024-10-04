@@ -10,7 +10,7 @@ namespace Drones
     {
         public List<Box> boxes = new List<Box>();
 
-        public void PassBox(Box box)
+        public void AddBox(Box box)
         {
             boxes.Add(box);
             Console.WriteLine("Un carton est disponible");

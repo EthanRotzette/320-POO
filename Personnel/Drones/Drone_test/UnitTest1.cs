@@ -66,12 +66,11 @@ namespace Drone_test
             Assert.AreEqual(EvacuationState.Free, drone.GetEvacuationState());
         }
         [TestMethod]
-        public void Test_that_valid_the_IDispatchable_methods()
+        public void Test_that_valid_the_Dispatch_methods()
         {
             // Arrange
             List<Box> box = new List<Box>();
 
-            // Arrange
             Dispatch dispatch = new Dispatch();
 
             // Act
@@ -83,11 +82,17 @@ namespace Drone_test
             
             foreach (Box boxe in box)
             {
-                dispatch.PassBox(boxe);
+                dispatch.AddBox(boxe);
             }
-       
+            
+            for(int i = 49; i > 47; i--)
+            {
+                dispatch.RemoveBox(box[i]);
+                box.RemoveAt(i);
+            }
+
             // Assert
-            for(int j = 0; j < 50; j++)
+            for (int j = 0; j < 48; j++)
             {
                 Assert.AreEqual(box[j], dispatch.boxes[j], "Les listes ne correspondent pas");
             }
