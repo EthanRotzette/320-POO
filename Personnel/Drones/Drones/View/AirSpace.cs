@@ -8,9 +8,9 @@ namespace Drones
     {
 
         // La flotte est l'ensemble des drones qui évoluent dans notre espace aérien
-        private List<Drone> fleet;
-        private List<Building> buildings;
-        private static Dispatch dispatch;
+        private List<Drone> _fleet;
+        private List<Building> _buildings;
+        private static Dispatch _dispatch;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
@@ -29,9 +29,9 @@ namespace Drones
             // Creates a BufferedGraphics instance associated with this form, and with
             // dimensions the same size as the drawing surface of the form.
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
-            this.fleet = fleet;
-            this.buildings = buildings;
-            dispatch = new Dispatch();
+            this._fleet = fleet;
+            this._buildings = buildings;
+            _dispatch = new Dispatch();
         }
 
         // Affichage de la situation actuelle
@@ -40,13 +40,13 @@ namespace Drones
             airspace.Graphics.Clear(Color.AliceBlue);
 
             // draw drones
-            foreach (Drone drone in fleet)
+            foreach (Drone drone in _fleet)
             {
                 drone.Render(airspace);
             }
 
             //Affiche les immeubles
-            foreach (Building building in buildings)
+            foreach (Building building in _buildings)
             {
                 if (building.GetType() == typeof(Factory))
                 {
@@ -67,17 +67,17 @@ namespace Drones
         private void Update(int interval)
         {
             //affiche les drones
-            foreach (Drone drone in fleet)
+            foreach (Drone drone in _fleet)
             {
                 drone.Update(interval);
             }
             
-            foreach (Building building in buildings)
+            foreach (Building building in _buildings)
             {
                 if (building.GetType() == typeof(Factory))
                 {
                     Factory factory = (Factory)building;  //type casting
-                    factory.Update(dispatch);
+                    factory.Update(_dispatch);
                 }
             }
         }
