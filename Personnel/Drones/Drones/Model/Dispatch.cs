@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Drones
 {
-    public class Dispatch : IDisposable
+    public class Dispatch : IDispatchable
     {
         List<Box> boxes = new List<Box>();
 
-        public void Dispose()
+        public bool PassBox(Box box)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool RemoveBox(Box box)
         {
             throw new NotImplementedException();
         }
